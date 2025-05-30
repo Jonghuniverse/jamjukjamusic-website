@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Merchandise - 잠은 죽어서 자</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=SUIT:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      background-color: #ffffff;
+      font-family: 'Noto Sans KR', sans-serif;
+      overflow-x: hidden;
+    }
+
+    header {
+      background-color: #fff066;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2.5rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      height: 90px;
+    }
+    .logo {
+      height: 64px;
+      margin-left: 100%;
+    }
+    nav {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+    nav a {
+      color: #000;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+    .icons {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+    .icons img[alt="Instagram"] {
+      width: 33px;
+      height: 33px;
+    }
+    .icons img[alt="SoundCloud"] {
+      width: 39px;
+      height: 26px;
+    }
+
+    .merch-section {
+      text-align: center;
+      padding: 100px 20px;
+    }
+
+    .merch-title {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1.5rem;
+      font-size: 3.6rem;
+      font-weight: 700;
+      opacity: 0;
+      transform: translateY(-30px);
+      animation: dropDown 0.8s ease-out forwards;
+    }
+
+    .merch-title img {
+      height: 100px;
+    }
+
+    .merch-list {
+      font-family: 'Gowun Dodum', sans-serif;
+      margin-top: 60px;
+      display: flex;
+      justify-content: center;
+      gap: 50px;
+      flex-wrap: wrap;
+      opacity: 0;
+      transform: translateY(-30px);
+      animation: dropDown 1s ease-out forwards;
+      animation-delay: 0.6s;
+    }
+
+    .merch-item img {
+      width: 200px;
+      height: 200px;
+    }
+
+    .keyring {
+      font-size: 2rem;
+      margin-top: 0.5rem;
+      color: #444;
+    }
+
+    @keyframes dropDown {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index.html"><img src="logopng.png" alt="로고" class="logo"></a>
+    <nav>
+      <a href="about.html">ABOUT</a>
+      <a href="crew.html">CREW</a>
+      <a href="music.html">MUSIC</a>
+      <a href="merch.html">MERCHANDISE</a>
+    </nav>
+    <div class="icons">
+      <a href="https://www.instagram.com/h_u____n_i/" target="_blank">
+        <img src="instalogoblack.png" alt="Instagram">
+      </a>
+      <a href="https://soundcloud.com/jamjukjamusic" target="_blank">
+        <img src="soundcloudlogoblack.png" alt="SoundCloud">
+      </a>
+    </div>
+  </header>
+
+  <section class="merch-section">
+    <div class="merch-title">
+      <img src="logogaro.png" alt="logo">
+      <strong>MERCHANDISE</strong>
+    </div>
+    <div class="merch-list">
+      <div class="merch-item">
+        <img src="merch01.png" alt="track">
+        <p class="keyring">잠죽자 호텔키링</p>
+      </div>
+      <div class="merch-item"><img src="logo.png" alt="track"></div>
+      <div class="merch-item"><img src="logo.png" alt="track"></div>
+      <div class="merch-item"><img src="logo.png" alt="track"></div>
+    </div>
+  </section>
+</body>
+</html>
