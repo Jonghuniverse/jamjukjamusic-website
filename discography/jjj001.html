@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>[EP] Huniverse: prelude - 잠은 죽어서 자</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* --- 애니메이션 정의 --- */
+    @keyframes dropDown {
+      0% { opacity: 0; transform: translateY(-20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    /* --- 공통 스타일 --- */
+    body {
+      margin: 0;
+      background-color: #fef6e4;
+      font-family: 'Noto Sans KR', sans-serif;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* --- 헤더 --- */
+    header {
+      background-color: #fff066;
+      display: grid; 
+      grid-template-columns: 1fr auto 1fr; 
+      align-items: center;
+      padding: 1rem 4rem; 
+      position: sticky;
+      top: 0;
+      z-index: 1000; 
+      height: 135px; 
+      box-sizing: border-box;
+    }
+    .header-left { grid-column: 1; display: flex; align-items: center; padding-left: 3rem; }
+    .logo { height: 70px; width: auto; }
+    .nav-pc { grid-column: 2; display: flex; gap: 3rem; align-items: center; justify-content: center; }
+    .nav-pc a { color: #000; text-decoration: none; font-weight: 700; font-size: 1.1rem; }
+    .icons { grid-column: 3; display: flex; gap: 1.5rem; align-items: center; justify-content: flex-end; }
+    .icons img { height: 35px; width: auto; transition: transform 0.2s; }
+    .icons img[alt="SoundCloud"] { height: 28px; }
+    .icons img:hover { transform: scale(1.1); }
+    .menu-toggle, .nav-mobile { display: none; }
+
+    /* --- 메인 콘텐츠 영역 --- */
+    .main-container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      padding: 5rem 0;
+    }
+
+    .album-detail-title {
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: #000;
+      margin-bottom: 3rem;
+      text-align: center;
+      opacity: 0;
+      animation: dropDown 1s ease-out forwards;
+    }
+
+    .album-detail-cover {
+      width: 80%;
+      max-width: 500px;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+      margin-bottom: 4rem;
+      opacity: 0;
+      animation: dropDown 1s ease-out forwards;
+      animation-delay: 0.3s;
+    }
+
+    .credit-section {
+      width: 80%;
+      max-width: 700px;
+      text-align: center;
+      opacity: 0;
+      animation: dropDown 1s ease-out forwards;
+      animation-delay: 0.6s;
+      line-height: 1.8;
+      color: #333;
+    }
+
+    .intro-quote {
+      font-style: italic; 
+      font-size: 1.4rem;  
+      font-weight: 500;
+      margin-bottom: 4rem;
+      color: #000;
+      word-break: keep-all;
+    }
+
+    .tracklist-title {
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin: 3rem 0 2rem 0;
+      color: #000;
+      border-bottom: 2px solid #000;
+      display: inline-block;
+      padding-bottom: 5px;
+    }
+
+    .track-item {
+      margin-bottom: 2rem;
+    }
+
+    .track-name {
+      font-size: 1.3rem; 
+      font-weight: 700;
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+
+    .track-desc {
+      font-style: italic; 
+      font-size: 1rem;
+      color: #666;
+      display: block;
+    }
+
+    .credit-text {
+      white-space: pre-wrap;
+      font-size: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    /* --- 푸터 --- */
+    .site-footer {
+      background-color: #1a1a2e;
+      padding: 40px 0;
+      text-align: center;
+      width: 100%;
+    }
+    .footer-content { display: flex; flex-direction: column; align-items: center; gap: 20px; }
+    .footer-logo { height: 40px; width: auto; }
+    .copyright-text { font-size: 12px; color: #ffffff; margin: 0; line-height: 1.5; }
+
+    /* --- 모바일 버전 --- */
+    @media screen and (max-width: 768px) {
+      header { display: flex; justify-content: space-between; padding: 1rem; height: 70px; }
+      .header-left { padding-left: 0; }
+      .nav-pc { display: none; }
+      .menu-toggle { display: block; font-size: 1.5rem; cursor: pointer; color: #000; background: none; border: none; margin-right: 1rem; }
+      .logo { height: 45px; }
+      .icons { gap: 1rem; }
+      .icons img { height: 24px; }
+      .icons img[alt="SoundCloud"] { height: 19px; }
+
+      .nav-mobile {
+        display: flex; position: fixed; top: 70px; left: -100%; width: 100%; height: calc(100vh - 70px);
+        background-color: rgba(255, 240, 102, 0.6); transition: left 0.3s ease-out; z-index: 999;
+        flex-direction: column; align-items: center; padding-top: 2rem; gap: 2rem;
+      }
+      .nav-mobile.active { left: 0; }
+      .nav-mobile a { color: #000; text-decoration: none; font-weight: 700; font-size: 1.2rem; }
+
+      .album-detail-title { font-size: 1.8rem; }
+      .intro-quote { font-size: 1.1rem; }
+      .track-name { font-size: 1.1rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-left">
+      <button class="menu-toggle" id="mobile-menu-btn">☰</button>
+      <div class="logo-container">
+        <a href="../index.html"><img src="../logo_images/logoblack.png" alt="로고" class="logo"></a>
+      </div>
+    </div>
+    <nav class="nav-pc">
+      <a href="../crew/crew.html">CREW</a>
+      <a href="../discography/discography.html">DISCOGRAPHY</a>
+      <a href="../drumtab/drumtab.html">DRUMTAB</a>
+    </nav>
+    <div class="icons">
+      <a href="https://www.instagram.com/jamjukjamusic/" target="_blank"><img src="../logo_images/instalogoblack.png" alt="Instagram"></a>
+      <a href="https://www.youtube.com/@jamjukjamusic" target="_blank"><img src="../logo_images/youtubelogoblack.png" alt="Youtube"></a>
+      <a href="https://soundcloud.com/jamjukjamusic" target="_blank"><img src="../logo_images/soundcloudlogoblack.png" alt="SoundCloud"></a>
+    </div>
+  </header>
+
+  <nav class="nav-mobile" id="mobile-nav">
+    <a href="../crew/crew.html">CREW</a>
+    <a href="../discography/discography.html">DISCOGRAPHY</a>
+    <a href="./drumtab/drumtab.html">DRUMTAB</a>
+  </nav>
+
+  <main class="main-container">
+    <h1 class="album-detail-title">[EP] Huniverse: prelude</h1>
+
+    <img src="huniverseprelude.jpg" alt="Huniverse: prelude 커버" class="album-detail-cover">
+
+    <div class="credit-section">
+      <div class="intro-quote">언제나 마지막처럼, 그리고 언제나 처음처럼.<br>우주는, 그 안에서만 볼 수 있어요.</div>
+
+      <h2 class="tracklist-title">TRACKLIST</h2>
+      
+      <div class="track-item">
+        <span class="track-name">1. 등가원리</span>
+        <span class="track-desc">좋으면 좋은 거지</span>
+      </div>
+
+      <div class="track-item">
+        <span class="track-name">2. 초끈이론</span>
+        <span class="track-desc">나도 몰랐던 나</span>
+      </div>
+
+      <div class="track-item">
+        <span class="track-name">3. Quantum</span>
+        <span class="track-desc">투영은 왜곡을 만들고</span>
+      </div>
+
+      <div class="track-item">
+        <span class="track-name">4. CMBR</span>
+        <span class="track-desc">영원히 끝나지 않는</span>
+      </div>
+
+      <div class="track-item">
+        <span class="track-name">5. 별구름</span>
+        <span class="track-desc">끝이 없다는 건 끝났다는 뜻일 테니</span>
+      </div>
+
+      <h2 class="tracklist-title">CREDIT</h2>
+      <div class="credit-text">Produced by <strong>박종훈</strong>
+Composed by <strong>박종훈</strong>
+Lyrics by <strong>박종훈</strong>
+Arranged by <strong>박종훈</strong>
+Programmed by <strong>박종훈</strong>
+Bass by <strong>박종훈</strong>
+Guitar by <strong>박종훈</strong>, <strong>손성원</strong> (Track 1, 5)
+Vocal, Chorus by <strong>박종훈</strong>
+Chorus (Track 2) by <strong>박종훈</strong>, <strong>홍다혜</strong>, <strong>손성원</strong>,
+<strong>김상일</strong>, <strong>민수환</strong>, <strong>장석찬</strong>, <strong>안태주</strong>, <strong>이성민</strong>
+Mixed & mastered by <strong>박종훈</strong></div>
+
+      <div class="credit-text" style="margin-top: 1.5rem;">[JAMJUKJA MUSIC]
+Management director <strong>박종훈</strong>
+A&R director <strong>박종훈</strong>
+Artist management <strong>박종훈</strong>
+
+[Special thanks to]
+<strong>김정운</strong> @__mono.space
+<strong>홍다혜</strong> @hey_hyea, <strong>이회원</strong> @2.member of Band OurR @ourr_official
+and …</div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-content">
+      <img src="../logo_images/logowhite.png" alt="로고화이트" class="footer-logo">
+      <p class="copyright-text">&copy; 2026 <strong>JAMJUKJA MUSIC</strong>. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const mobileNav = document.getElementById('mobile-nav');
+    menuBtn.addEventListener('click', () => {
+      mobileNav.classList.toggle('active');
+      menuBtn.innerText = mobileNav.classList.contains('active') ? '✕' : '☰';
+    });
+  </script>
+</body>
+</html>
