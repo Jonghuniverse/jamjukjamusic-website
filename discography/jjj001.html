@@ -94,7 +94,7 @@
       font-style: italic; 
       font-size: 1.4rem;  
       font-weight: 500;
-      margin-bottom: 4rem;
+      margin-bottom: 1.5rem;
       color: #000;
       word-break: keep-all;
     }
@@ -102,7 +102,7 @@
     .tracklist-title {
       font-size: 1.5rem;
       font-weight: 800;
-      margin: 3rem 0 2rem 0;
+      margin: 1rem 0 2rem 0;
       color: #000;
       border-bottom: 2px solid #000;
       display: inline-block;
@@ -111,6 +111,28 @@
 
     .track-item {
       margin-bottom: 2rem;
+    }
+
+    .streaming-links {
+      display: flex;
+      justify-content: center; /* 3번 해결: 가로축 중앙 정렬 */
+      gap: 3.5rem;             /* 로고 사이 간격 확대 */
+      margin: 1rem 0 6rem 0;   /* 위아래 여백 조절 */
+      width: 100%;             /* 전체 너비 확보 */
+      opacity: 0;
+      animation: dropDown 1s ease-out forwards;
+      animation-delay: 0.45s;
+    }
+    
+    .streaming-links img {
+      height: 55px;            /* 1번 해결: 로고 크기 확대 (기존 35px) */
+      width: auto;
+      transition: transform 0.2s;
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1)); /* 살짝 입체감 추가 */
+    }
+    
+    .streaming-links img:hover {
+      transform: scale(1.15);
     }
 
     .track-name {
@@ -154,6 +176,8 @@
       .icons { gap: 1rem; }
       .icons img { height: 24px; }
       .icons img[alt="SoundCloud"] { height: 19px; }
+      .streaming-links { gap: 2rem; margin-bottom: 2.5rem; }
+      .streaming-links img { height: 40px; }
 
       .nav-mobile {
         display: flex; position: fixed; top: 70px; left: -100%; width: 100%; height: calc(100vh - 70px);
@@ -201,6 +225,18 @@
     <h1 class="album-detail-title">[EP] Huniverse: prelude</h1>
 
     <img src="huniverseprelude.jpg" alt="Huniverse: prelude 커버" class="album-detail-cover">
+
+    <div class="streaming-links">
+      <a href="https://open.spotify.com/album/3jO6Tjj7vq65kQSV5wF3Au" target="_blank">
+        <img src="spotify_logo.png" alt="Spotify">
+      </a>
+      <a href="https://www.youtube.com/watch?v=RU44Itp7rgk&list=OLAK5uy_kuW1MtvsIJneoOAB0QLOkIrb3okoFcMKI" target="_blank">
+        <img src="youtubemusic_logo.png" alt="YouTube Music">
+      </a>
+      <a href="https://www.melon.com/album/detail.htm?albumId=13330752" target="_blank">
+        <img src="melon_logo.png" alt="Melon">
+      </a>
+    </div>
 
     <div class="credit-section">
       <div class="intro-quote">언제나 마지막처럼, 그리고 언제나 처음처럼.<br>우주는, 그 안에서만 볼 수 있어요.</div>
